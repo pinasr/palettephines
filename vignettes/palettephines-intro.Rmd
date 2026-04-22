@@ -1,0 +1,166 @@
+---
+title: "Grounding Spatial Statistics with Philippine Biological Reality using palettephines"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Grounding Spatial Statistics with Philippine Biological Reality using palettephines}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 4
+)
+```
+
+# Introduction
+
+In spatial modeling, abstract color gradients (like `viridis`) are essential for perceptual clarity but often fail to provide domain-specific meaning. The `palettephines` package provides topologically grounded scales anchored to international biological standards (BBCH-scale and Reef Health Index). This is to ensure that data visualization would resonate with the lived experience of Filipino fishermen, farmers, and other local audience.
+
+*Note: This package is designed as a domain-specific translation layer for the final stage of a spatial data analytics workflow. It is not a replacement as reference for Exploratory Data Analysis and spatial association via Local Indicators of Spatial Association (LISA)/ Moran's I.*
+
+# Introducing the Palette
+
+The package currently covers *five critical transition colors* of the Philippine bio-economy:
+
+```{r palettes, echo = TRUE, warning = FALSE, message = FALSE}
+# 1. Set up required libraries
+library(palettephines)
+library(ggplot2)
+
+# 2. Setup the layout (3 rows, 2 columns to fit all 5 palettes)
+par(mfrow = c(3, 2), mar = c(4, 4, 3, 1))
+
+# 3. Call the preview functions
+# This dynamically pulls from the exported metadata to avoid "object not found" errors
+invisible(lapply(names(phines_metadata), function(pal_name) {
+  show_phines(pal_name)
+}))
+
+```
+
+# Application in Data Analysis
+
+A critical principle of spatial statistics is that domain-specific palettes should not replace exploratory data analysis (EDA). Instead, they serve as the final interpretive layer in a robust analytical pipeline.
+
+The following workflow demonstrates how `palettephines` complements standard mathematical scales such as `viridis` and statistical techniques like Local Indicators of Spatial Association (LISA).
+
+## 1. Exploratory Phase: Mathematical Rigor with Viridis
+
+During the initial phase of analysis, we use perceptually uniform scales to detect features without thematic bias. Here, we simulate a **Sea Surface Temperature (SST)** gradient for a coral reef monitoring site.
+
+```{r eda, echo = TRUE, warning = FALSE, message = FALSE}
+#!. Load libraries
+library(sf)
+library(dplyr)
+library(sfdep)
+
+# 2. Simulate synthetic dataset
+set.seed(42)
+bbox <- st_bbox(c(xmin = 0, xmax = 10, ymin = 0, ymax = 10), crs = 3857)
+
+# 3. Create the raw spatial data
+reef_sf <- st_make_grid(bbox, cellsize = c(1, 1), n = c(10, 10)) %>%
+  st_sf() %>%
+  mutate(id = row_number(), sst_stress = runif(n(), 0, 0.3))
+
+# 4. Inject Hotspot
+hotspot_ids <- c(44, 45, 46, 54, 55, 56, 64, 65, 66)
+reef_sf$sst_stress[hotspot_ids] <- runif(length(hotspot_ids), 0.7, 0.9)
+
+# 5. Plot: Exploratory Data Analysis
+ggplot(reef_sf) +
+  geom_sf(aes(fill = sst_stress)) +
+  scale_fill_viridis_c() +
+  theme_void() +
+  labs(title = "Step 1: Exploratory Data Analysis using Viridis", 
+       subtitle = "Perceptually uniform mapping of raw thermal stress values")
+
+```
+
+## 2. Analytical Phase: Statistical Significance (LISA)
+
+At this stage, the analyst would typically apply a LISA (Local Indicators of Spatial Association) or a Getis-Ord $G^*$ test to identify statistically significant hotspots of thermal stress. While `palettephines` does not calculate significance, it is used to color the clusters once they are identified.
+
+```{r lisa, echo = TRUE, warning = FALSE, message = FALSE}
+
+# 6. Run calculations
+reef_lisa <- reef_sf %>%
+  mutate(nb = st_contiguity(geometry),
+         wt = st_weights(nb),
+         lisa = local_moran(sst_stress, nb, wt)) %>%
+  tidyr::unnest(lisa)
+
+# 7. Filter for the subsequent interpretive phase
+hotspots <- reef_lisa %>%
+  filter(p_folded_sim < 0.05, mean == "High-High")
+
+# 8. Plot: Pure LISA Classification
+ggplot(reef_lisa) +
+  geom_sf(aes(fill = mean), color = "white", size = 0.1) +
+  scale_fill_manual(
+    values = c("High-High" = "#E31A1C", "Low-Low" = "#1F78B4", 
+               "Low-High" = "#A6CEE3", "High-Low" = "#FB9A99"),
+    na.value = "grey95", name = "LISA Cluster"
+  ) +
+  theme_minimal() +
+  labs(title = "Step 2: Pure LISA Analysis",
+       subtitle = "Mathematical identification of spatial clumping (p < 0.05)")
+
+```
+
+## 3. Interpretive Phase: Policy Context with palettephines
+
+Once the hotspots are confirmed, we switch to `palettephines` to translate those temperatures into actionable alert levels defined by the Reef Health Index (RHI).
+
+```{r wrap-local-context, echo = TRUE, warning = FALSE, message = FALSE}
+
+# 9. Plot: Wrap Local Philippine context 
+ggplot() +
+  geom_sf(data = reef_lisa, fill = "grey95", color = "white", size = 0.1) +
+  geom_sf(data = hotspots, aes(fill = sst_stress), color = "black", size = 0.5) +
+  scale_fill_phines(
+    palette = "coral_bleach", discrete = FALSE, name = "RHI Alert Level",
+    breaks = c(0.7, 0.8, 0.9), labels = c("Stress", "Bleaching", "Mortality")
+  ) +
+  theme_minimal() +
+  labs(title = "Step 3: Local Interpretation",
+       subtitle = "Significant clusters translated to Reef Health Index (RHI) states")
+
+```
+
+## 4. Semantic Citation
+
+Finally, we use the `cite_phines()` dictionary to extract precise biological states for reporting to environmental agencies (e.g., DENR-BMB).
+
+```{r cite, echo = TRUE, warning = FALSE, message = FALSE}
+
+# 10. Translate to written insight
+if (nrow(hotspots) > 0) {
+  representative_value <- median(hotspots$sst_stress, na.rm = TRUE)
+  report_status <- cite_phines(palette = "coral_bleach", value = representative_value)
+} else {
+  report_status <- "No significant thermal hotspots detected."
+}
+
+cat("#> Official Analytical Report:", report_status)
+```
+
+# Conclusion
+
+The `palettephines` package serves as a final, critical bridge in the spatial data science workflow. As demonstrated, the transition from exploratory analysis (using `viridis`) to statistical confirmation (using LISA) only becomes truly actionable when it is grounded in biological reality.
+
+By anchoring color scales to the BBCH-scale for agriculture and the Reef Health Index for marine ecosystems, analysts can move beyond abstract "High-High" clusters toward a narrative that resonates with policy-makers and local communities. Whether identifying the "Fully Ripe" stage of a palay harvest or the "Critical Mortality" threshold of a coral reef, the goal remains the same: ensuring that the mathematical precision of spatial modeling translates into the lived reality of the Philippine landscape.
+
+This workflow ensures that:
+
+**Scientific Interoperability** is maintained through globally recognized biological standards.
+
+**Stakeholder Communication** is improved by using colors that match the physical transitions seen in the field or sea.
+
+**Analytical Integrity** is preserved by treating domain-specific palettes as an interpretive layer rather than a replacement for statistical rigor.
+
+Through this grounded approach, spatial analysts can provide insights that are not only statistically significant but also culturally and biologically relevant.

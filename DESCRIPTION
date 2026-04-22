@@ -1,0 +1,42 @@
+Package: palettephines
+Type: Package
+Title: Analytical Color Palettes for Philippine Phenology
+Version: 0.1.2
+Authors@R: 
+    person("NJ", "Talingting", 
+           email = "ninotalingting77@gmail.com", 
+           role = c("aut", "cre"), 
+           comment = c(ORCID = "0009-0003-7245-874X"))
+Description: Provides specialized color palettes representing phenological 
+    transitions and biological lifecycles within Philippine landscapes. 
+    Rather than abstract gradients, these scales are anchored to 
+    topologically grounded states such as agricultural maturity, 
+    seasonal vegetation shifts, and environmental readiness. Palettes 
+    are indexed against the BBCH-scale (Meier, 2023) for terrestrial 
+    vegetation and the Reef Health Index (RHI) framework (McField and 
+    Kramer, 2007) <https://www.healthyreefs.org> for marine ecosystems. 
+    This ensures scientific interoperability across archipelagic spatial 
+    models, aligning with global standards for ecological state-transition 
+    modeling (Schwartz, 2013) <doi:10.1007/978-94-007-6925-0>.
+License: MIT + file LICENSE
+URL: https://github.com/pinasr/palettephines
+BugReports: https://github.com/pinasr/palettephines/issues
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.3
+Depends: R (>= 4.1.0)
+Imports: 
+    ggplot2,
+    graphics,
+    grDevices
+Suggests: 
+    knitr,
+    rmarkdown,
+    sf,
+    dplyr,
+    sfdep,
+    tidyr,
+    roroph,
+    rnaturalearth,
+    rnaturalearthdata
+VignetteBuilder: knitr
