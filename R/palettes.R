@@ -1,6 +1,9 @@
 #' Philippine Phenological Palette Metadata
 #' 
 #' Internal list containing hex codes and scientific stages (BBCH, MSI, and ST-Mod).
+#' 
+#' @return A nested \code{list} where each element represents a palette containing 
+#' vectors of colors, biological stages, and scientific codes.
 #' @export
 phines_metadata <- list(
   palay_harvest = list(
@@ -35,7 +38,9 @@ phines_metadata <- list(
 #' @param name Palette name (palay_harvest, mangga_pico, coral_bleach, red_tide_watch, forest_transition)
 #' @param n Number of colors. If NULL, returns the anchor colors.
 #' @param direction 1 for standard, -1 for reversed.
-#' @return A character vector of hex colors.
+#' @return A \code{character vector} of hex colors. If \code{n} is NULL, 
+#' returns the original anchor colors; otherwise, returns an interpolated 
+#' vector of length \code{n} for smooth gradients.
 #' @export
 #' @examples
 #' phines("palay_harvest", n = 5)
@@ -63,7 +68,9 @@ phines <- function(name, n = NULL, direction = 1) {
 #' 
 #' @param palette Name of the palette.
 #' @param value A numeric value between 0 and 1.
-#' @return A string representing the biological stage and scientific code.
+#' @return A \code{character string} representing the biological stage and 
+#' scientific code (e.g., "Seedling (BBCH 10)"). This maps a normalized 
+#' value to its ecological meaning.
 #' @export
 #' @examples
 #' cite_phines("palay_harvest", 0.8)
@@ -97,12 +104,15 @@ cite_phines <- function(palette, value) {
 #' @param palette Palette name.
 #' @param discrete Logical, if TRUE returns a discrete scale.
 #' @param ... Passed to ggplot2 scale functions.
+#' @return A \code{ggplot2} scale object (class \code{ScaleDiscrete} or 
+#' \code{ScaleContinuous}) to be added to a ggplot object. This maps 
+#' data values to the phenological colors of the Philippines.
 #' @export
 #' @examples
 #' library(ggplot2)
 #' ggplot(mtcars, aes(x = wt, y = mpg, fill = factor(cyl))) +
-#'   geom_point(shape = 21, size = 3) +
-#'   scale_fill_phines("palay_harvest")
+#'    geom_point(shape = 21, size = 3) +
+#'    scale_fill_phines("palay_harvest")
 scale_fill_phines <- function(palette = "palay_harvest", discrete = TRUE, ...) {
   if (discrete) {
     ggplot2::discrete_scale("fill", "phines", 
@@ -124,10 +134,16 @@ scale_color_phines <- function(palette = "palay_harvest", discrete = TRUE, ...) 
 }
 
 #' Visual Preview of Palettes
+#' 
 #' @param name Palette name.
+#' @return No return value, called for side effects. This function generates 
+#' a plot in the active graphics device showing the color blocks of the palette.
 #' @export
 #' @examples
+#' # Use oldpar to respect user's graphical settings
+#' oldpar <- par(no.readonly = TRUE)
 #' show_phines("coral_bleach")
+#' par(oldpar)
 show_phines <- function(name) {
   pal <- phines(name)
   n <- length(pal)

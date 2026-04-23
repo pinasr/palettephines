@@ -10,6 +10,10 @@ An object of class \code{list} of length 5.
 \usage{
 phines_metadata
 }
+\value{
+A nested \code{list} where each element represents a palette containing 
+vectors of colors, biological stages, and scientific codes.
+}
 \description{
 Internal list containing hex codes and scientific stages (BBCH, MSI, and ST-Mod).
 }

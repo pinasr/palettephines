@@ -9,9 +9,16 @@ show_phines(name)
 \arguments{
 \item{name}{Palette name.}
 }
+\value{
+No return value, called for side effects. This function generates 
+a plot in the active graphics device showing the color blocks of the palette.
+}
 \description{
 Visual Preview of Palettes
 }
 \examples{
+# Use oldpar to respect user's graphical settings
+oldpar <- par(no.readonly = TRUE)
 show_phines("coral_bleach")
+par(oldpar)
 }

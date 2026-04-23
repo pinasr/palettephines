@@ -16,12 +16,17 @@ scale_color_phines(palette = "palay_harvest", discrete = TRUE, ...)
 
 \item{...}{Passed to ggplot2 scale functions.}
 }
+\value{
+A \code{ggplot2} scale object (class \code{ScaleDiscrete} or 
+\code{ScaleContinuous}) to be added to a ggplot object. This maps 
+data values to the phenological colors of the Philippines.
+}
 \description{
 ggplot2 Scales for palettephines
 }
 \examples{
 library(ggplot2)
 ggplot(mtcars, aes(x = wt, y = mpg, fill = factor(cyl))) +
-  geom_point(shape = 21, size = 3) +
-  scale_fill_phines("palay_harvest")
+   geom_point(shape = 21, size = 3) +
+   scale_fill_phines("palay_harvest")
 }

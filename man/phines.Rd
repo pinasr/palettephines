@@ -14,7 +14,9 @@ phines(name, n = NULL, direction = 1)
 \item{direction}{1 for standard, -1 for reversed.}
 }
 \value{
-A character vector of hex colors.
+A \code{character vector} of hex colors. If \code{n} is NULL, 
+returns the original anchor colors; otherwise, returns an interpolated 
+vector of length \code{n} for smooth gradients.
 }
 \description{
 Generate Phenological Palettes

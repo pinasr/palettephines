@@ -31,15 +31,19 @@ The package currently covers *five critical transition colors* of the Philippine
 library(palettephines)
 library(ggplot2)
 
-# 2. Setup the layout (3 rows, 2 columns to fit all 5 palettes)
+# 2. Capture current settings and setup the layout
+# We use no.readonly = TRUE to ensure we only try to reset writeable parameters
+oldpar <- par(no.readonly = TRUE) 
 par(mfrow = c(3, 2), mar = c(4, 4, 3, 1))
 
 # 3. Call the preview functions
-# This dynamically pulls from the exported metadata to avoid "object not found" errors
+# Using names(phines_metadata) is smart—it makes the code future-proof
 invisible(lapply(names(phines_metadata), function(pal_name) {
   show_phines(pal_name)
 }))
 
+# 4. Reset to original user settings
+par(oldpar)
 ```
 
 # Application in Data Analysis
@@ -53,7 +57,7 @@ The following workflow demonstrates how `palettephines` complements standard mat
 During the initial phase of analysis, we use perceptually uniform scales to detect features without thematic bias. Here, we simulate a **Sea Surface Temperature (SST)** gradient for a coral reef monitoring site.
 
 ```{r eda, echo = TRUE, warning = FALSE, message = FALSE}
-#!. Load libraries
+#1. Load libraries
 library(sf)
 library(dplyr)
 library(sfdep)

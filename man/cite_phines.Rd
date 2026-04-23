@@ -12,7 +12,9 @@ cite_phines(palette, value)
 \item{value}{A numeric value between 0 and 1.}
 }
 \value{
-A string representing the biological stage and scientific code.
+A \code{character string} representing the biological stage and 
+scientific code (e.g., "Seedling (BBCH 10)"). This maps a normalized 
+value to its ecological meaning.
 }
 \description{
 Translate values to Phenological States
