@@ -13,5 +13,14 @@ As of v0.1.3, the package covers five (5) major transition in the Philippine bio
 <p align="center">
   <img src="man/figures/palette_sample.png" width="100%">
   <br>
-  <i><b>Figure 1:</b> The five major palette of the palettephines package in R.</i>
+  <i><b>Image 1:</b> The five major palette of the palettephines package in R.</i>
+</p>
+
+## Application
+The primary usage of this package is to transform datasets stuck in spreadsheets into visualizations that could be used for decision-making and communication. Here, we used the 'mangga_pico' palette to determine the growth status for each places.
+
+<p align="center">
+  <img src="man/figures/sample_application.png" width="100%">
+  <br>
+  <i><b>Image 1:</b> The five major palette of the palettephines package in R.</i>
 </p>
