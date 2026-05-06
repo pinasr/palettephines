@@ -28,7 +28,7 @@ The primary usage of this package is to transform datasets stuck in spreadsheets
 ## Installation
 You may install the package using:
 ```
-install.packages(""palettephines")
+install.packages("palettephines")
 ```
 ## Getting Started
 ```
