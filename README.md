@@ -29,7 +29,6 @@ The primary usage of this package is to transform datasets stuck in spreadsheets
 You may install the package using:
 ```
 install.packages(""palettephines")
-
 ```
 ## Getting Started
 ```
@@ -51,4 +50,4 @@ invisible(lapply(names(phines_metadata), function(pal_name) {
 par(oldpar)
 ```
 ## Contributions are welcome!
-If you want to include a speficic palette - from Philippine biomes to your favorite fruit - feel free to create a pull request or submit an issue [here](https://github.com/pinasr/palettephines/issues)
+If you want to include a specific palette - from Philippine biomes to your favorite fruit - feel free to create a pull request or submit an issue [here.](https://github.com/pinasr/palettephines/issues)
