@@ -17,10 +17,38 @@ As of v0.1.3, the package covers five (5) major transition in the Philippine bio
 </p>
 
 ## Application
-The primary usage of this package is to transform datasets stuck in spreadsheets into visualizations that could be used for decision-making and communication. Here, we used the 'mangga_pico' palette to determine the growth status for each places.
+The primary usage of this package is to transform datasets stuck in spreadsheets into visualizations that could be used for decision-making and communication. Here, we used the `mangga_pico` palette to determine the growth status for each places.
 
 <p align="center">
   <img src="man/figures/sample_application.png" width="100%">
   <br>
-  <i><b>Image 1:</b> The five major palette of the palettephines package in R.</i>
+  <i><b>Image 1:</b> Visualizing the `mangga_pico palette in the Philippine map using the `palettephines` package .</i>
 </p>
+
+## Installation
+You may install the package using:
+```
+install.packages(""palettephines")
+
+```
+## Getting Started
+```
+# 1. Set up required libraries
+library(palettephines)
+library(ggplot2)
+
+# 2. Capture current settings and setup the layout
+# We use no.readonly = TRUE to ensure we only try to reset writeable parameters
+oldpar <- par(no.readonly = TRUE) 
+par(mfrow = c(3, 2), mar = c(4, 4, 3, 1))
+
+# 3. Call the preview functions
+invisible(lapply(names(phines_metadata), function(pal_name) {
+  show_phines(pal_name)
+}))
+
+# 4. Reset to original user settings
+par(oldpar)
+```
+## Contributions are welcome!
+If you want to include a speficic palette - from Philippine biomes to your favorite fruit - feel free to create a pull request or submit an issue [here](https://github.com/pinasr/palettephines/issues)
