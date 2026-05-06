@@ -24,7 +24,7 @@ The primary usage of this package is to transform datasets stuck in spreadsheets
 <p align="center">
   <img src="man/figures/sample_application.png" width="100%">
   <br>
-  <i><b>Image 1:</b> Visualizing the `mangga_pico palette in the Philippine map using the `palettephines` package .</i>
+  <i><b>Image 2:</b> Visualizing the `mangga_pico palette in the Philippine map using the `palettephines` package .</i>
 </p>
 
 ## Installation
