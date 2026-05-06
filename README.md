@@ -1,4 +1,4 @@
-<img src="man/figures/logo.png" align="right" height="139" />
+<img src="man/figures/package_logo.png" align="right" height="139" />
 
 # palettephines: Analytical Color Palettes for Philippine Phenology
 [![CRAN status](https://www.r-pkg.org/badges/version/palettephines)](https://CRAN.R-project.org/package=palettephines)
