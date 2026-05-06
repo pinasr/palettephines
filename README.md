@@ -11,7 +11,7 @@ In spatial modeling, abstract color gradients (like `viridis`) are essential for
 As of v0.1.3, the package covers five (5) major transition in the Philippine bio-economy:
 
 <p align="center">
-  <img src="man/figures/palette_explore.png" width="100%">
+  <img src="man/figures/palette_sample.png" width="100%">
   <br>
-  <i><b>Figure 1:</b> Spatial Connectivity and Daily Frequency of the Philippine RoRo Maritime Network</i>
+  <i><b>Figure 1:</b> The five major palette of the palettephines package in R.</i>
 </p>
