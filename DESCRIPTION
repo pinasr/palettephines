@@ -43,3 +43,4 @@ Suggests:
     rnaturalearth,
     rnaturalearthdata
 VignetteBuilder: knitr
+X-schema.org-keywords: data-visualization, philippine-biome, phenology
