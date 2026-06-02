@@ -28,7 +28,7 @@ The primary usage of this package is to transform datasets stuck in spreadsheets
 </p>
 
 <p align="center">
-  <img src="man/figures/palay_palette.png" width="100%">
+  <img src="man/figures/palay_palette.jpg" width="100%">
   <br>
   <i><b>Image 2:</b> Visualizing the `palay_harvest` palette in the Philippine map using the `palettephines` package .</i>
 </p>
