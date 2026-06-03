@@ -57,6 +57,9 @@ invisible(lapply(names(phines_metadata), function(pal_name) {
 # 4. Reset to original user settings
 par(oldpar)
 ```
+## Contributions are welcome!
+If you want to include a specific palette - from Philippine biomes to your favorite fruit - feel free to create a pull request or submit an issue [here.](https://github.com/pinasr/palettephines/issues)
+
 ## References
 Meier, U. (2023). Growth stages of mono- and dicotyledonous plants: BBCH Monograph. OpenAgrar. https://www.openagrar.de/servlets/MCRFileNodeServlet/openagrar_derivate_00010428/BBCH-Skala_en.pdf
 
@@ -64,5 +67,3 @@ McField, M., & Kramer, P. R. (2007). Healthy Reefs for Healthy People: A guide t
 
 Schwartz, M. W. (2013). Ecological state-transition modeling. In Encyclopedia of Biodiversity (2nd ed.). Springer. https://doi.org/10.1007/978-94-007-6925-0
 
-## Contributions are welcome!
-If you want to include a specific palette - from Philippine biomes to your favorite fruit - feel free to create a pull request or submit an issue [here.](https://github.com/pinasr/palettephines/issues)
