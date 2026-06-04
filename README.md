@@ -1,9 +1,10 @@
 <img src="man/figures/package_logo.png" align="right" height="139" />
 
 # palettephines: Analytical Color Palettes for Philippine Phenology
-[![CRAN status](https://www.r-pkg.org/badges/version/palettephines)](https://CRAN.R-project.org/package=palettephines)
 [![R-CMD-check](https://github.com/njtalingting/palettephines/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/njtalingting/palettephines/actions)
 [![CRAN checks](https://badges.cranchecks.info/summary/palettephines.svg)](https://cran.r-project.org/web/checks/check_results_palettephines.html)
+[![CRAN status](https://www.r-pkg.org/badges/version/palettephines)](https://CRAN.R-project.org/package=palettephines)
+
 
 ## Overview
 In spatial modeling, abstract color gradients (like `viridis`) are essential for perceptual clarity but often fail to provide domain-specific meaning. This package provides topologically grounded scales anchored to international biological standards (BBCH-scale and Reef Health Index). This is for data visualization to resonate with the lived experience of Filipino fishermen, farmers, and other local audience.
