@@ -59,6 +59,9 @@ invisible(lapply(names(phines_metadata), function(pal_name) {
 # 4. Reset to original user settings
 par(oldpar)
 ```
+## Acknowledgements
+The developer extends their gratitude to the community, particularly the local fishermen, whom they served as a Sangguniang Kabataan official in a coastal barangay from 2023 to 2026. This package stands as a product of that time. Thank you for reminding me that our professional workflows— from spatial modeling to color design—must remain grounded in the real world, ensuring that our science always remains accessible at the grassroots.
+
 ## Contributions are welcome!
 If you want to include a specific palette - from Philippine biomes to your favorite fruit - feel free to create a pull request or submit an issue [here.](https://github.com/pinasr/palettephines/issues)
 
