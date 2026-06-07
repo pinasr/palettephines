@@ -9,10 +9,10 @@
 ## Overview
 In spatial analysis, abstract color gradients (like `viridis`) are essential for perceptual clarity but often fail to provide domain-specific meaning. This package was developed for data visualization to resonate with the lived experience of Filipino fishermen, farmers, and other local audience through anchoring it to plant phenology (BBCH-scale) and marine health (Reef Health Index).
 
-> Note: The `palettephines` package is not a replacement for statistical techniques such as Local Indicators of Spatial Association (LISA) and Moran's I but acts as a domain-specific layer. Check out this [vignette](https://pinasr.r-universe.dev/articles/palettephines/palettephines-intro.html) on how to complement this package to standard spatial analytics workflow.
+> Note: The `palettephines` package is not a replacement for statistical techniques such as Local Indicators of Spatial Association (LISA) and Moran's I but acts as a final touch for presentations. Check out this [vignette](https://pinasr.r-universe.dev/articles/palettephines/palettephines-intro.html) on how to complement this package to "more serious" spatial analytics workflow.
  
 ## Exploring the Palette
-As of v0.1.3, the package covers five (5) major transition in the Philippine bio-economy:
+As of v0.1.3, the package covers five (5) major transition in the Philippines:
 
 <p align="center">
   <img src="man/figures/palette_sample.png" width="100%">
@@ -60,7 +60,7 @@ invisible(lapply(names(phines_metadata), function(pal_name) {
 par(oldpar)
 ```
 ## Acknowledgements
-The developer extends their gratitude to the community, particularly the local fishermen, whom they served as a Sangguniang Kabataan official in a coastal barangay from 2023 to 2026. This package stands as a product of that time. Thank you for reminding me that our professional workflows— from spatial modeling to color design—must remain grounded in the real world, ensuring that our science always remains accessible at the grassroots.
+The developer extends his gratitude to the community, particularly the local fishermen, whom he served as a Sangguniang Kabataan official in a coastal barangay from 2023 to 2026. This package stands as a product of that time. Thank you for the reminder that our professional workflows — from spatial modeling to color design — must remain grounded in the real world, ensuring that our tools always remains accessible at the grassroots.
 
 ## Contributions are welcome!
 If you want to include a specific palette - from Philippine biomes to your favorite fruit - feel free to create a pull request or submit an issue [here.](https://github.com/pinasr/palettephines/issues)
