@@ -60,7 +60,7 @@ invisible(lapply(names(phines_metadata), function(pal_name) {
 par(oldpar)
 ```
 ## Acknowledgements
-The developer extends his deepest gratitude to the local producers who continue to keep our country alive. This software does not exist to teach you anything new. It exists to honor your domain expertise and ensure that our software is packaged to see your reality.
+The developer extends his deepest gratitude to the local farmers, fisherfolks, and other blue-collar workers who continue to keep our country alive. This software does not exist to teach you anything new; it exists to honor your expertise and ensure that our software is packaged to see your reality.
 
 ## Contributions are welcome!
 If you want to include a specific palette - from Philippine biomes to your favorite fruit - feel free to create a pull request or submit an issue [here.](https://github.com/pinasr/palettephines/issues)
