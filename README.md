@@ -7,7 +7,7 @@
 
 
 ## Overview
-In spatial analysis, abstract color gradients (like `viridis` in R) are essential for perceptual clarity but often fail to provide immediate meaning to the locals. This package was developed for data visualization to resonate with the lived experience of Filipino fishermen, farmers, and other local audience through anchoring it to scales such as the colors of ripening fruits (BBCH-scale) and marine life (Reef Health Index).
+In spatial analysis, abstract color gradients (like `viridis` in R) are essential for perceptual clarity but often fail to provide immediate meaning to the locals. This package was developed not by teaching the local farmers, fishermen, and other locals how to read statistics, but by teaching the data how to speak their language.
 
 > Note: The `palettephines` package is not a replacement for statistical techniques such as Local Indicators of Spatial Association (LISA) and Moran's I but acts as a final touch for presentations, maps, among other things. For the full features, you may check [vignette.](https://pinasr.r-universe.dev/articles/palettephines/palettephines-intro.html)
 
