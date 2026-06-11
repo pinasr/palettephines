@@ -11,30 +11,6 @@ In spatial analysis, abstract color gradients (like `viridis` in R) are essentia
 
 > Note: The `palettephines` package is not a replacement for statistical techniques such as Local Indicators of Spatial Association (LISA) and Moran's I but acts as a final touch for presentations, maps, among other things. For the full features, you may check [vignette.](https://pinasr.r-universe.dev/articles/palettephines/palettephines-intro.html)
 
-## Exploring the Palette
-As of v0.1.3, the package covers five (5) major transition in the Philippines:
-
-<p align="center">
-  <img src="man/figures/palette_sample.png" width="100%">
-  <br>
-  <i><b>Image 1:</b> The five major palette of the palettephines package in R.</i>
-</p>
-
-## Application
-The primary usage of this package is to transform datasets stuck in spreadsheets into visualizations that could be used for decision-making and communication. Here, we used the `mangga_pico` palette to determine the growth status for each places.
-
-<p align="center">
-  <img src="man/figures/mangga_pico.png" width="100%">
-  <br>
-  <i><b>Image 2:</b> Visualizing the `mangga_pico` palette in the Philippine map using the `palettephines` package .</i>
-</p>
-
-<p align="center">
-  <img src="man/figures/palay_palette.jpg" width="100%">
-  <br>
-  <i><b>Image 2:</b> Visualizing the `palay_harvest` palette in the Philippine map using the `palettephines` package .</i>
-</p>
-
 ## Installation
 You may install the package using:
 ```
@@ -59,6 +35,31 @@ invisible(lapply(names(phines_metadata), function(pal_name) {
 # 4. Reset to original user settings
 par(oldpar)
 ```
+
+## Exploring the Palette
+As of v0.1.3, the package covers five (5) major transition in the Philippines:
+
+<p align="center">
+  <img src="man/figures/palette_sample.png" width="100%">
+  <br>
+  <i><b>Image 1:</b> The five major palette of the palettephines package in R.</i>
+</p>
+
+## Application
+The primary usage of this package is to transform datasets stuck in spreadsheets into visualizations that could be used for decision-making and communication. Here, we used the `mangga_pico` palette to determine the growth status for each places.
+
+<p align="center">
+  <img src="man/figures/mangga_pico.png" width="100%">
+  <br>
+  <i><b>Image 2:</b> Visualizing the `mangga_pico` palette in the Philippine map using the `palettephines` package .</i>
+</p>
+
+<p align="center">
+  <img src="man/figures/palay_palette.jpg" width="100%">
+  <br>
+  <i><b>Image 2:</b> Visualizing the `palay_harvest` palette in the Philippine map using the `palettephines` package .</i>
+</p>
+
 ## Acknowledgements
 The developer extends his deepest gratitude to the local farmers, fisherfolks, and other blue-collar workers who continue to keep our country alive. This software does not exist to teach you anything new; it exists to honor your expertise and ensure that our software is packaged to see your reality.
 
