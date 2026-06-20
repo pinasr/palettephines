@@ -1,4 +1,4 @@
-<img src="man/figures/package_logo.png" align="right" height="139" />
+<img src="man/figures/package_logo.png" align="right"/>
 
 # palettephines: Analytical Color Palettes for Philippine Phenology
 [![R-CMD-check](https://github.com/njtalingting/palettephines/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/njtalingting/palettephines/actions)
